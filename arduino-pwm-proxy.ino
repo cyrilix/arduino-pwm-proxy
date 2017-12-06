@@ -16,7 +16,7 @@ void setup() {
 void loop() {
   pwm_steering_value = pulseIn(PWM_RC_STEERING_PIN, HIGH, 20000);
   pwm_throttle_value = pulseIn(PWM_RC_THROTTLE_PIN, HIGH, 20000);
-  sprintf(buff, "%d,%d\n", pwm_throttle_value, pwm_steering_value);
+  sprintf(buff, "%d,%d", pwm_throttle_value, pwm_steering_value);
   Serial.println(buff);
 }
 
