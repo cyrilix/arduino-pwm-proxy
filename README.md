@@ -1,8 +1,16 @@
 #PWM Proxy for Arduino
 
-Simple Arduino based PWM proxy. It is used to get the PWM order received from Tx and sent it to the Raspberry through serial port. 
-It allows to drive the car with the native Tx radio (better for training compared to the web controller)
+Simple Arduino based PWM proxy. It is used to get the PWM orders received from Tx and sent it to the Raspberry through serial port. 
+It outputs last measured pwm signal each 50ms
 
-This is the very basic way to do it. so basic that Arduino core is more or less dedicated to that function. 
-See http://www.benripley.com/diy/arduino/three-ways-to-read-a-pwm-signal-with-arduino/ for other way.
+output format is :
+<pwm throttle>,<pwm_steering>,<pwm_freq>
+where :
+pwm_throttle is the pwm duration of the throttle signal, in us
+pwm_steering is the pwm duration of the steering signal, in us
+pwm_freq is the perceived pwn frequency.
+
+When the algorithm is unable to detect the pwm signal, it ouputs '-,-,-'
+
+Inspired from  http://www.benripley.com/diy/arduino/three-ways-to-read-a-pwm-signal-with-arduino/ for other way.
 
