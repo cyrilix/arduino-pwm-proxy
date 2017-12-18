@@ -35,7 +35,7 @@ void loop() {
 void timedCheckOutput()
 {
   if ((throttle_toggle == 0) || (steering_toggle == 0)) {
-    sprintf(buff, "-,-,-");
+    sprintf(buff, "-1,-1,-1");
   } else {
     sprintf(buff, "%d,%d,%d", pwm_throttle_value, pwm_steering_value, freq_value);
   }
