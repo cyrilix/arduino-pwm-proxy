@@ -1,8 +1,5 @@
 
-//#include "CurieTimerOne.h"
-#include <SimpleTimer.h>
-// the timer object
-SimpleTimer timer;
+#include "CurieTimerOne.h"
 
 #define  PWM_RC_STEERING_INPUT_PIN 11
 #define  PWM_RC_THROTTLE_INPUT_PIN 5
@@ -28,13 +25,12 @@ void setup() {
   Serial1.begin(115200);
   attachInterrupt(PWM_RC_THROTTLE_INPUT_PIN, throttle_rising, RISING);
   attachInterrupt(PWM_RC_STEERING_INPUT_PIN, steering_rising, RISING);
-  timer.setInterval(50, timedCheckOutput);
-  //CurieTimerOne.start(OUTPUTLOOP, &timedCheckOutput);  // set timer and callback
+
+  CurieTimerOne.start(OUTPUTLOOP, &timedCheckOutput);  // set timer and callback
 
 }
  
 void loop() {
-   timer.run();
 }
 
 void timedCheckOutput()
